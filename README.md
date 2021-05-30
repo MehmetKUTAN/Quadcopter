@@ -14,8 +14,9 @@ setup for project;
  "roslaunch hector_Astar hector_formation_6_quads.launch " 
  and your gazebo environment will open.
 8. open a new bash2 and type the ros code. open a new bash and type the ros code
+  
   a) "source devel/setup.bash"
-  b) "rosservice call /quad1/enable_motors "enable:true" "
+  b) "rosservice call /quad1/enable_motors "enable:true" "  
   c) "rosservice call /quad2/enable_motors "enable:true" "
   d) "rosservice call /quad3/enable_motors "enable:true" "
   e) "rosservice call /quad4/enable_motors "enable:true" "

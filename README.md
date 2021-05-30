@@ -1,10 +1,7 @@
 It allows the drones to form the formation and move on the navigation path.
 --------------------------------------------------------------------
 
---------------------------------------------------------------------
-requirements:
-ros-noetic -> http://wiki.ros.org/noetic
-gazebo -> http://gazebosim.org/download
+
 --------------------------------------------------------------------
 setup for project;
 1. Clone the project file to the desktop
@@ -33,3 +30,7 @@ setup for project;
  1.https://github.com/ros-geographic-info/unique_identifier/
  2.https://github.com/ros-geographic-info/geographic_info
  
+--------------------------------------------------------------------
+requirements:
+ros-noetic -> http://wiki.ros.org/noetic
+gazebo -> http://gazebosim.org/download

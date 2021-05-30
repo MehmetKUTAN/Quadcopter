@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!--  Start Gazebo with wg world running in (max) realtime  -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+ <!--
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find hector_quadrotor_gazebo)/worlds/formation_6_quad.world"/>
+  </include>
+-->
+
+   <arg name="model" default="$(find hector_quadrotor_description)/urdf/quadrotor_hokuyo_utm30lx.gazebo.xacro"/>
+
+  <group ns="quad1">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="quad1" />
+       <arg name="tf_prefix" value="quad1" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="0.0" />
+       <arg name="y" value="0.0" />
+       <arg name="z" value="0.0" />
+     </include>
+   </group>
+
+   <group ns="quad2">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="quad2" />
+       <arg name="tf_prefix" value="quad2" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="0.0" />
+       <arg name="y" value=".0" />
+       <arg name="z" value="0.0" />
+     </include>
+   </group>
+
+   <group ns="quad3">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="quad3" />
+       <arg name="tf_prefix" value="quad3" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="0.0" />
+       <arg name="y" value="-4.0" />
+       <arg name="z" value="0.0" />
+     </include>
+   </group>
+
+   <group ns="quad4">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="quad4" />
+       <arg name="tf_prefix" value="quad4" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="0.0" />
+       <arg name="y" value="8.0" />
+       <arg name="z" value="0.0" />
+     </include>
+   </group>
+
+   <group ns="quad5">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="quad5" />
+       <arg name="tf_prefix" value="quad5" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="0.0" />
+       <arg name="y" value="-8.0" />
+       <arg name="z" value="0.0" />
+     </include>
+   </group>
+
+   <!--group ns="quad6">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="quad6" />
+       <arg name="tf_prefix" value="quad6" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="-5.0" />
+       <arg name="y" value="-0.5" />
+       <arg name="z" value="0.0" />
+     </include>
+   </group-->
+
+
+
+
+  <!-- Spawn simulated quadrotor uav -->
+    <!--
+  <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
+    <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor_hokuyo_utm30lx.gazebo.xacro"/>
+  </include>-->
+
+  <!-- Start SLAM system
+  <include file="$(find hector_mapping)/launch/mapping_default.launch">
+    <arg name="odom_frame" value="world"/>
+  </include>-->
+
+  <!-- Start GeoTIFF mapper -->
+<!--   <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch">
+    <arg name="trajectory_publish_rate" value="4"/>
+  </include> -->
+
+  <!-- added by MO instruction -->
+  
+<!--   <node pkg ="hector_Astar" name = "position_controller" type = "position_controller.py" output = "screen"/>
+  <node pkg ="hector_Astar" name = "Trajectory_ref" type = "Trajectory_ref.py" output = "screen"/> -->
+  
+  
+
+  <!-- Start rviz visualization with preset config -->
+   <!--
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hector_quadrotor_demo)/rviz_cfg/indoor_slam.rviz"/>
+  -->
+
+</launch>

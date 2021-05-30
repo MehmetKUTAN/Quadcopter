@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Start Gazebo with wg world running in (max) realtime -->
+  <include file="$(find hector_gazebo_worlds)/launch/start.launch"/>
+  
+<!--
+   <arg name="model" default="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+-->
+
+   <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor_hokuyo_utm30lx.gazebo.xacro"/>
+    <arg name="controllers" value="
+        controller/attitude
+        controller/velocity
+        controller/position
+    "/>
+
+   <group ns="drone1">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="drone1" />
+       <arg name="tf_prefix" value="drone1" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="0.0" />
+     </include>
+   </group>
+
+   <group ns="drone2">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="drone2" />
+       <arg name="tf_prefix" value="drone2" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="-1.0" />
+     </include>
+   </group>
+
+   <group ns="drone3">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="drone3" />
+       <arg name="tf_prefix" value="drone3" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="x" value="1.0" />
+     </include>
+   </group>
+
+
+   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hector_quadrotor_demo)/rviz_cfg/outdoor_flight.rviz"/>
+
+
+<!--
+   <group ns="uav4">
+     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+       <arg name="name" value="uav4" />
+       <arg name="tf_prefix" value="uav4" />
+       <arg name="model" value="$(arg model)" />
+       <arg name="y" value="2.0" />
+     </include>
+   </group>
+-->
+</launch>

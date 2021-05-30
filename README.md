@@ -1,8 +1,10 @@
 It allows the drones to form the formation and move on the navigation path.
 --------------------------------------------------------------------
+
+--------------------------------------------------------------------
 requirements:
-ros-noetic
-gazebo
+ros-noetic -> http://wiki.ros.org/noetic
+gazebo -> http://gazebosim.org/download
 --------------------------------------------------------------------
 setup for project;
 1. Clone the project file to the desktop
